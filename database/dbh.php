@@ -2,10 +2,11 @@
 
 $dbhost = 'localhost';
 $dbuser = 'root';
-$dbpass = 'S0dHR0RLUEhFU09ZQU1BRVpBS01J';
+$passKey = 'S0dHR0RLUEhFU09ZQU1BRVpBS01J';
+$dbpass = base64_decode($passKey);
 $dbname = 'minecorddb';
 
-$conn = mysqli_connect($dbhost, $dbuser, base64_decode($dbpass), $dbname);
+$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());

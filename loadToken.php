@@ -1,6 +1,6 @@
 <?php
 
 function loadToken() {
-    $token = 'TVRJNU9EWXdOak0xTnpVM016a3pNVEV3TUEuRzRkaTdGLnZKZGdFdDdrTURndEtLQklBUmtsR1pub3VBRmdnY1ppakk0UHh3';
+    $token = 'TVRJNU5qZzVOREl3TnpjMU1EazJOelF4T1EuR0c3RlZGLjd2b2pZdkJHWndWUGJSUFp5NTVKblRxSzR6dHhiRklqMFdjbV9J';
     return base64_decode($token);
 };
