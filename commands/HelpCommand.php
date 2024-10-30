@@ -66,7 +66,7 @@ class HelpCommand
             "**`m.link`**\n*Bot invite link*\n**`m.updates`**\n*Updates log*", true);
 
         $embed->addFieldValues(":memo: Credits",
-            "**`Bot Developer`** @desiignerr\n**`Bot Language`** PHP\n**`Bot Version`** v1.3 Beta\n**`Current Users`** " . $this->loadUsers() . "**`Hosting`** Luny Hosting\n*More updates soon!*", true);
+            "**`Bot Developer`** @desiignerr\n**`Bot Language`** PHP\n**`Bot Version`** v1.3 Beta\n**`Current Users`** " . $this->loadUsers() . "\n**`Hosting by`** Luny Hosting\n*More updates soon!*", true);
 
         $message->channel->sendEmbed($embed);
     }
