@@ -47,7 +47,16 @@ class FarmCommand {
             $description = "$authorUsername You farmed:\n";
             
             // Determine how many crops to farm (1 to 3 crops)
-            $numCropsToFarm = rand(1, 5);
+            if (getItem($authorUsername, 'Bone meal')) {
+                $numCropsToFarm = rand(3, 8);
+                
+                if (rand(1, 100) >= 5) {
+                    eatItem($authorUsername, 'Bone meal');
+                };
+            } else {
+                $numCropsToFarm = rand(1, 5);
+            }
+            
             $farmedItems = [];
             
             for ($i = 0; $i < $numCropsToFarm; $i++) {
@@ -65,7 +74,7 @@ class FarmCommand {
             // If any items were farmed, append them to the description
             if (!empty($farmedItems)) {
                 $description .= implode("\n", $farmedItems);
-                if (rand(0, 1) === 1) {
+                if (rand(1, 100) >= 15) {
                     eatItem($authorUsername, 'Water bucket');
                     generateExp($message, $authorUsername);
                 }

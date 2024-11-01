@@ -44,7 +44,7 @@ class UpdatesCommand
             ⊦ *New item `Water bucket` <:water_bucket:1298738776331522110>*
             ⊦ *New item `Planks` <:planks:1298738574765723758>*
             ⊦ *New item `Stick` <:stick:1298738600233668618>*
-            ⊦ *New item `String` <:string:1298738589689057342
+            ⊦ *New item `String` <:string:1298738589689057342>
             
             >*
             ⊦ *New item `Crafting table` <:crafting_table:1298610906921701409>*

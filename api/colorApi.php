@@ -50,6 +50,8 @@ function getColor($itemName) {
         return '0xd6d6d6';
     } elseif ($itemName === 'Green') {
         return '0x00FF00';
+    } elseif ($itemName === 'Bone meal') {
+        return '0x00FF00';
     } else {
         return '0x212121';
     }

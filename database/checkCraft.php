@@ -10,7 +10,9 @@ function checkCraft($author, $craftId) {
         'furnace',
         'fishing rod',
         'wooden hoe',
-        'bread'
+        'bread',
+        'stick',
+        'bone meal',
     );
 
     if (in_array($craftId, $carfts)) {
@@ -44,8 +46,21 @@ function checkCraft($author, $craftId) {
             } else {
                 return true;
             }
+        } elseif ($craftId === 'stick') {
+            if (getItem($author, 'Planks') < 2) {
+                return false;
+            } else {
+                return true;
+            }
+        } elseif ($craftId === 'bone meal') {
+            if (getItem($author, 'Bone') < 1) {
+                return false;
+            } else {
+                return true;
+            }
         };
 
+ 
     } else {
         return false;
     }

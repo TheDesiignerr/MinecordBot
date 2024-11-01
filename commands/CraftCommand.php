@@ -7,6 +7,7 @@ require_once 'database/createCraft.php';
 require_once 'database/getItem.php';
 require_once 'api/colorApi.php';
 require_once 'api/imageApi.php';
+require_once 'api/emojiApi.php';
 require_once 'package/generateExp.php';
 
 use Discord\Parts\Channel\Message;
@@ -51,7 +52,9 @@ class CraftCommand
             'furnace',
             'fishing rod',
             'wooden hoe',
-            'bread'
+            'bread',
+            'stick',
+            'bone meal',
         );
 
         return in_array($craftItem, $crafts);
@@ -66,7 +69,7 @@ class CraftCommand
     }
 
     private function sendCraft(Message $message, $author, $craftItem) {
-        if (in_array($craftItem, ['furnace', 'fishing rod', 'wooden hoe', 'bread'])) {
+        if (in_array($craftItem, ['furnace', 'fishing rod', 'wooden hoe', 'bread', 'stick', 'bone meal'])) {
             if (getItem($author, 'Crafting table')) {
                 createCraft($author, $craftItem);
                 $embed = new Embed($this->discord);
@@ -99,10 +102,8 @@ class CraftCommand
         <:fishing_rod:1297614225677750392> `Fishing rod`
         <:wooden_hoe:1298738623663050823> `Wooden hoe`
         <:bread:1298610895026389002> `Bread`
+        <:stick:1298738600233668618> `Stick`
+        ".getEmoji('bone_meal')." `Bone meal`
         ";
-    }
-
-    private function sendErrorEmbed(Message $message, $craftItem, $author) {
-        // Implement error embed here
     }
 }

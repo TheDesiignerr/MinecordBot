@@ -40,8 +40,8 @@ class CookCommand
             } else {
                 // Call smeltItem with the amount
                 smeltItem($authorUsername, $furnaceItem, $amount);
-                generateExp($message, $authorUsername);
                 $this->sendSuccessEmbed($message, $authorUsername, $furnaceItem, $amount);
+                generateExp($message, $authorUsername);
             }
         } else {
             $message->channel->sendMessage("Usage: `m.cook <item> <amount>`");

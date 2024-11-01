@@ -5,6 +5,7 @@ require_once 'api/fishApi.php';
 require_once 'api/imageApi.php';
 require_once 'database/setItem.php';
 require_once 'database/getItem.php';
+require_once 'database/eatItem.php';
 require_once 'package/setLog.php';
 require_once 'package/generateExp.php';
 
@@ -39,21 +40,26 @@ class FishCommand
                 setLog("Fish command", "{$authorUsername} tried fishing without a fishing rod");
                 return;
             } else {
-                $itemData = getFish();
-                $embed = new Embed($this->discord);
-                $embed->setTitle($authorUsername.' caught a '.$itemData['itemName'].'!');
-                $embed->setDescription($itemData['itemDesc']);
-                $embed->setImage($itemData['itemImage']);
-                $embed->setColor($itemData['itemColor']);
-                $embed->setFooter("blublbublublub");
-                $embed->setTimestamp(time());
-                $message->channel->sendEmbed($embed);
-                
-                $itemName = $itemData['itemName'];
-                generateExp($message, $authorUsername);
-                setItem($authorUsername, $itemName);
-                setLog("Fish command", "{$authorUsername} caught a fish and has been added to database");
-                return;
+                if (rand(0, 1) === 1) {
+                    $itemData = getFish();
+                    $embed = new Embed($this->discord);
+                    $embed->setTitle($authorUsername.' caught a '.$itemData['itemName'].'!');
+                    $embed->setDescription($itemData['itemDesc']);
+                    $embed->setImage($itemData['itemImage']);
+                    $embed->setColor($itemData['itemColor']);
+                    $embed->setFooter("blublbublublub");
+                    $embed->setTimestamp(time());
+                    $message->channel->sendEmbed($embed);
+                    
+                    $itemName = $itemData['itemName'];
+                    generateExp($message, $authorUsername);
+                    setItem($authorUsername, $itemName);
+                    setLog("Fish command", "{$authorUsername} caught a fish and has been added to database");
+                    return;
+                } else {
+                    $message->channel->sendMessage("***Snap!*** * *Looks like your fishing rod snapped*");
+                    eatItem($authorUsername, 'Fishing rod');
+                }
             }
         } else {
             $message->channel->sendMessage("Usage: `m.fish` to catch a fish.");

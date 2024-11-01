@@ -86,5 +86,35 @@ function createCraft($author, $craftId) {
                 mysqli_query($conn, $query);
             }
             break;
+
+        case 'stick':
+            $query = "UPDATE inventory SET mine_amount = mine_amount - 2 WHERE mine_name = 'Planks' AND mine_author = '$author'";
+            mysqli_query($conn, $query);
+
+            $currentAmount = getItem($author, $itemName);
+
+            if ($currentAmount === 0) {
+                $query = "INSERT INTO inventory(mine_name, mine_amount, mine_author) VALUES('$itemName', mine_amount + 1, '$author')";
+                mysqli_query($conn, $query);
+            } else {
+                $query = "UPDATE inventory SET mine_amount = mine_amount + 1 WHERE mine_name = '$itemName' AND mine_author = '$author'";
+                mysqli_query($conn, $query);
+            }
+            break;
+
+        case 'bone meal':
+            $query = "UPDATE inventory SET mine_amount = mine_amount - 1 WHERE mine_name = 'Bone' AND mine_author = '$author'";
+            mysqli_query($conn, $query);
+
+            $currentAmount = getItem($author, $itemName);
+
+            if ($currentAmount === 0) {
+                $query = "INSERT INTO inventory(mine_name, mine_amount, mine_author) VALUES('$itemName', mine_amount + 1, '$author')";
+                mysqli_query($conn, $query);
+            } else {
+                $query = "UPDATE inventory SET mine_amount = mine_amount + 1 WHERE mine_name = '$itemName' AND mine_author = '$author'";
+                mysqli_query($conn, $query);
+            }
+            break;
     }
 }

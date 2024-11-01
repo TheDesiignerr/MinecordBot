@@ -35,6 +35,8 @@ use Commands\UpdatesCommand;
 use Commands\CraftCommand;
 use Commands\FarmCommand;
 use Commands\ExploreCommand;
+use Commands\StatusCommand;
+use Commands\InspectCommand;
 
 $discord = new Discord([
     'token' => loadToken(),
@@ -58,6 +60,8 @@ $commands = [
     'm.craft' => CraftCommand::class,
     'm.farm' => FarmCommand::class,
     'm.explore' => ExploreCommand::class,
+    'm.status' => StatusCommand::class,
+    'm.inspect' => InspectCommand::class,
 ];
 
 $discord->on('ready', function($discord) use ($commands) {

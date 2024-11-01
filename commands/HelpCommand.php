@@ -3,6 +3,7 @@
 namespace Commands;
 
 require_once 'database/getTotalUsers.php';
+require_once 'api/emojiApi.php';
 
 use Discord\Parts\Channel\Message;
 use Discord\Parts\Embed\Embed;
@@ -62,11 +63,20 @@ class HelpCommand
         $embed->addFieldValues("<:wooden_hoe:1298738623663050823> Farming",
             "**`m.farm`**\n*Usage: `You need hoe and water bucket`*", true);
 
+        $embed->addFieldValues(getEmoji('ender_pearl')." Exploring",
+            "**`m.explore`**\n*Usage: `You need ender pearls`*", true);
+
+        $embed->addFieldValues(":bar_chart: Status",
+            "**`m.status`**\n*Usage: `View exp and total items`*", true);
+
+        $embed->addFieldValues(":mag: Inspect",
+            "**`m.inspect`**\n*Example: `m.inspect cactus`*", true);
+
         $embed->addFieldValues(":dizzy: Bot Support",
             "**`m.link`**\n*Bot invite link*\n**`m.updates`**\n*Updates log*", true);
 
         $embed->addFieldValues(":memo: Credits",
-            "**`Bot Developer`** @desiignerr\n**`Bot Language`** PHP\n**`Bot Version`** v1.3 Beta\n**`Current Users`** " . $this->loadUsers() . "\n**`Hosting by`** Luny Hosting\n*More updates soon!*", true);
+            "**`Bot Developer`** @desiignerr\n**`Bot Language`** PHP\n**`Bot Version`** v1.4 Beta\n**`Current Users`** " . $this->loadUsers() . "**`Hosting`** Luny Hosting\n*More updates soon!*", true);
 
         $message->channel->sendEmbed($embed);
     }

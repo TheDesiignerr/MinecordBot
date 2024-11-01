@@ -158,6 +158,10 @@ function getImage($itemName) {
             return 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/96/Egg_JE2_BE2.png/revision/latest?cb=20240728031646';
             break;
 
+        case $itemName === 'Bone meal':
+            return 'https://static.wikia.nocookie.net/hexxit/images/d/d6/Bone_Meal.png/revision/latest?cb=20140121051011';
+            break;
+
         case $itemName === 'ERR':
             return 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/96/Dead_Bush_%28texture%29_JE1_BE1.png/revision/latest?cb=20200918200748';
             break;
