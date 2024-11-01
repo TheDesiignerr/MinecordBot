@@ -95,5 +95,7 @@ function getEmoji($itemName) {
         return "<:bone:1301868136215089163>";
     } elseif ($itemName === 'bone_meal') {
         return "<:bone_meal:1301895231922245633>";
+    } elseif ($itemName === 'deadbush') {
+        return "<:deadbush:1301868113968496663>";
     } 
 }

@@ -6,6 +6,7 @@ require_once 'database/getItem.php'; // Adjust as needed
 require_once 'database/getExp.php'; // Adjust as needed
 require_once 'database/validateUser.php'; // Adjust as needed
 require_once 'package/setLog.php'; // Adjust as needed
+require_once 'api/emojiApi.php'; // Adjust as needed
 
 use Discord\Parts\Channel\Message;
 use Discord\Parts\Embed\Embed;
@@ -61,8 +62,8 @@ class InvCommand
 
               $embed->addFieldValues("<:blocks:1297308825594101771> ┆ Blocks", 
               "<:dirt:1296932147093049395> **`Dirt " . getItem($username, 'Dirt') . "x`**\n" .
-              "<:dirt:1296932147093049395> **`Sand " . getItem($username, 'Sand') . "x`**\n" .
-              "<:dirt:1296932147093049395> **`Cactus " . getItem($username, 'Cactus') . "x`**\n" .
+              "".getEmoji('sand')." **`Sand " . getItem($username, 'Sand') . "x`**\n" .
+              "".getEmoji('cactus')." **`Cactus " . getItem($username, 'Cactus') . "x`**\n" .
               "<:cobblestone:1298610885199396884> **`Cobblestone " . getItem($username, 'Cobblestone') . "x`**\n" .
               "<:planks:1298738574765723758> **`Planks " . getItem($username, 'Planks') . "x`**\n" .
               "<:crafting_table:1298610906921701409> **`Crafting Table " . getItem($username, 'Crafting table') . "x`**\n" .
@@ -99,7 +100,8 @@ $embed->addFieldValues("<:fish:1297691173376495716> ┆ Food",
               "<:cake:1297312328093663292> **`Cake " . getItem($username, 'Cake') . "x`**", true);
 
 $embed->addFieldValues("<:wheat:1298738689895038996> ┆ Farming", 
-"<:poisonus_potato:1298738732727402589> **`Bone " . getItem($username, 'Bone') . "x`**\n" .
+              "".getEmoji('bone')." **`Bone " . getItem($username, 'Bone') . "x`**\n" .
+              "".getEmoji('bone_meal')." **`Bone meal " . getItem($username, 'Bone meal') . "x`**\n" .
               "<:wheat:1298738689895038996> **`Wheat " . getItem($username, 'Wheat') . "x`**\n" .
               "<:bread:1298610895026389002> **`Bread " . getItem($username, 'Bread') . "x`**\n" .
               "<:potato:1298738704348614777> **`Potato " . getItem($username, 'Potato') . "x`**\n" .
@@ -110,7 +112,7 @@ $embed->addFieldValues("<:wheat:1298738689895038996> ┆ Farming",
 $embed->addFieldValues("<:obtainables:1297308843684139039> ┆ Obtainables", 
               "<:poppy:1296954406859964446> **`Poppy " . getItem($username, 'Poppy') . "x`**\n" .
               "<:daisy:1297313939004199004> **`Daisy " . getItem($username, 'Daisy') . "x`**\n" .
-              "<:orb:1300200337935695992> **`Deadbush " . getItem($username, 'Deadbush') . "x`**", true);
+              "".getEmoji('deadbush')." **`Deadbush " . getItem($username, 'Deadbush') . "x`**", true);
 
         return $embed;
     }
